@@ -7,6 +7,7 @@ import com.uasz.daos_microservice_maquette.repository.ModuleRepository;
 import com.uasz.daos_microservice_maquette.entity.Module;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class ModuleService {
@@ -28,8 +29,8 @@ public class ModuleService {
   }
 
   // Modification du module
-  public Module modifierModule(Module module) {
-    Module moduleModifier = rechercherModule(module.getId());
+  public Module modifierModule(Long id, Module module) {
+    Module moduleModifier = rechercherModule(id);
 
     if (moduleModifier != null) {
       moduleModifier.setCours(module.getCours());
@@ -43,4 +44,8 @@ public class ModuleService {
 
     return null;
   }
+
+public List<Module> listerToutModule() {
+    return moduleRepository.findAll();
+}
 }

@@ -27,8 +27,8 @@ public class NiveauService {
         return niveauRepository.findById(id).orElse(null);
     }
 
-    public Niveau modifierNiveau(Niveau niveau) {
-        Niveau niveauModifier = rechercherNiveau(niveau.getId());
+    public Niveau modifierNiveau(Long id, Niveau niveau) {
+        Niveau niveauModifier = rechercherNiveau(id);
 
         if (niveauModifier != null) {
             niveauModifier.setLibelle(niveau.getLibelle());
@@ -42,5 +42,9 @@ public class NiveauService {
 
     public List<Formation> afficherToutesFormation(Niveau niveau) {
         return niveauRepository.findByFormation(niveau);
+    }
+
+    public List<Niveau> listerToutNiveau() {
+        return niveauRepository.findAll();
     }
 }

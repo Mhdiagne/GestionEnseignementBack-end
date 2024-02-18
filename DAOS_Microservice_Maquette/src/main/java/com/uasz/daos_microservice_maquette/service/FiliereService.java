@@ -27,8 +27,8 @@ public class FiliereService {
         filiereRepository.delete(filiere);
     }
 
-    public Filiere modifierFiliere(Filiere filiere) {
-        Filiere filiereModifier = rechercherFiliere(filiere.getId());
+    public Filiere modifierFiliere(Long id, Filiere filiere) {
+        Filiere filiereModifier = rechercherFiliere(id);
 
         if (filiereModifier != null) {
             filiereModifier.setLibelle(filiere.getLibelle());

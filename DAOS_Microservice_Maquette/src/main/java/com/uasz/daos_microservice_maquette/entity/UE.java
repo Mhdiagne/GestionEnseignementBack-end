@@ -16,7 +16,9 @@ public class UE {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String libelle, code, description;
+    private String libelle;
+    private String code;
+    private String description;
     private int credit, coefficient;
     private Date dateCreation;
 

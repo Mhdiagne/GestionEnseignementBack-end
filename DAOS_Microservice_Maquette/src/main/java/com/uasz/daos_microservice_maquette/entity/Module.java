@@ -16,7 +16,10 @@ public class Module {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String libelle, cours, objectifs, description;
+    private String libelle;
+    private String cours;
+    private String objectifs;
+    private String description;
     private short duree;
     private Date dateCreation = new Date();
 

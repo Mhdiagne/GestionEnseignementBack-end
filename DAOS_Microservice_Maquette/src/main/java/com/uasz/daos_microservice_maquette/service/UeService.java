@@ -32,8 +32,8 @@ public class UeService {
         return ueRepository.findById(id).orElse(null);
     }
 
-    public UE ModifierUE(UE ue) {
-        UE ueModifier = rechercherUE(ue.getId());
+    public UE modifierUE(Long id, UE ue) {
+        UE ueModifier = rechercherUE(id);
         if (ueModifier != null) {
             ueModifier.setCode(ue.getCode());
             ueModifier.setCoefficient(ue.getCoefficient());

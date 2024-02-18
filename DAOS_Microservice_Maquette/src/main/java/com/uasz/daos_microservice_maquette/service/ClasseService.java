@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.uasz.daos_microservice_maquette.entity.Classe;
 import com.uasz.daos_microservice_maquette.repository.ClasseRepository;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -25,23 +26,18 @@ public class ClasseService {
         return classeRepository.findAll();
     }
 
-    // public Iterable<UE> literToutUE() {
-    // return ueRepository.findAll();
-    // }
-    //
-    // // public Optional<UE> rechercherUE(Long id) {
-    // // return ueRepository.findById(id);
-    // // }
-
     public Classe rechercherClasse(Long id) {
         return classeRepository.findById(id).orElse(null);
     }
 
-    public Classe ModifierClasse(Classe classe) {
-        Classe classeModifier = rechercherClasse(classe.getId());
+    public Classe modifierClasse(Long id, Classe classe) {
+        Classe classeModifier = rechercherClasse(id);
         if (classeModifier != null) {
-            classe.setLibelle(classe.getLibelle());
-
+            classeModifier.setLibelle(classe.getLibelle());
+            classeModifier.setDescription(classe.getDescription());
+            classeModifier.setDateCreation(new Date());
+            classeModifier.setEffectif(classe.getEffectif());
+            classeModifier.setNombreGroupe(classe.getNombreGroupe());
             return classeRepository.save(classeModifier);
         }
         return null;

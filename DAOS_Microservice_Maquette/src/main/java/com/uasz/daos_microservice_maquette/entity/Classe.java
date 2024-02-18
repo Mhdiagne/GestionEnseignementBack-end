@@ -16,9 +16,11 @@ public class Classe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String libelle, description;
-    private int nombreGroupe, effectif;
-    private Date dateCreation;
+    private String libelle;
+    private String description;
+    private int nombreGroupe;
+    private int effectif;
+    private Date dateCreation = new Date();
 
 
     @ManyToOne

@@ -1,6 +1,7 @@
 package com.uasz.daos_microservice_maquette.service;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +31,8 @@ public class SemestreService {
   }
 
   // Modification d'un semestre
-  public Semestre modifierSemestre(Semestre semestre) {
-    Semestre semestreModifier = rechercherSemestre(semestre.getId());
+  public Semestre modifierSemestre(Long id, Semestre semestre) {
+    Semestre semestreModifier = rechercherSemestre(id);
 
     if (semestreModifier != null) {
       semestreModifier.setLibelle(semestre.getLibelle());
@@ -42,4 +43,8 @@ public class SemestreService {
     }
     return null;
   }
+
+public List<Semestre> listerToutSemestre() {
+    return semestreRepository.findAll();
+}
 }

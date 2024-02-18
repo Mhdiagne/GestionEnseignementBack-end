@@ -16,7 +16,9 @@ public class Maquette {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String libelle, code;
+    private String libelle;
+    private String description;
+    private String code;
     private Date dateCreation = new Date();
     @OneToOne
     private Formation formation;

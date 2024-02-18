@@ -1,6 +1,7 @@
 package com.uasz.daos_microservice_maquette.service;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,8 @@ public class FormationService {
         return formationRepository.findById(id).orElse(null);
     }
 
-    public Formation modifierFormation(Formation formation) {
-        Formation formationModifier = rechercherFormation(formation.getId());
+    public Formation modifierFormation(Long id, Formation formation) {
+        Formation formationModifier = rechercherFormation(id);
 
         if (formationModifier != null) {
             formationModifier.setLibelle(formation.getLibelle());
@@ -36,5 +37,9 @@ public class FormationService {
 
     public void supprimerFormation(Formation formation) {
         formationRepository.delete(formation);
+    }
+
+    public List<Formation> listerToutFormation() {
+        return formationRepository.findAll();
     }
 }

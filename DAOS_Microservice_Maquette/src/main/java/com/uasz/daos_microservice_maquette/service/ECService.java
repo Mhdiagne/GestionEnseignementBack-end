@@ -19,12 +19,12 @@ public class ECService {
     private ECRepository ecRepository;
 
     // Ajouter un nouveau EC
-    public void ajouterEC(EC ec) {
-        ecRepository.save(ec);
+    public EC ajouterEC(EC ec) {
+        return ecRepository.save(ec);
     }
 
     // Affichage des EC
-    public List<EC> afficherToutEC() {
+    public List<EC> listerToutECs() {
         return ecRepository.findAll();
     }
 
@@ -34,8 +34,8 @@ public class ECService {
     }
 
     // Modifer un Ec
-    public EC modifierEC(EC ec) {
-        EC ecModifier = afficherEC(ec.getId());
+    public EC modifierEC(Long id, EC ec) {
+        EC ecModifier = afficherEC(id);
 
         if (ecModifier != null) {
             ecModifier.setCode(ec.getCode());

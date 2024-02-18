@@ -31,8 +31,8 @@ public class CycleService {
     }
 
     // Modification d'un cycle
-    public Cycle modifierCycle(Cycle cycle) {
-        Cycle cycleModifier = rechercherCycle(cycle.getId());
+    public Cycle modifierCycle(Long id, Cycle cycle) {
+        Cycle cycleModifier = rechercherCycle(id);
 
         if (cycleModifier != null) {
             cycleModifier.setLibelle(cycle.getLibelle());

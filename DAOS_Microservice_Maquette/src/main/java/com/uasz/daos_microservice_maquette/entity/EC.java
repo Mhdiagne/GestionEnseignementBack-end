@@ -16,8 +16,14 @@ public class EC {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String libelle, code, description;
-    private short cm, td, tp, tpe, coefficient;
+    private String libelle;
+    private String code;
+    private String description;
+    private short cm;
+    private short td;
+    private short tp;
+    private short tpe;
+    private short coefficient;
     private Date dateCreation = new Date();
 
     @ManyToOne

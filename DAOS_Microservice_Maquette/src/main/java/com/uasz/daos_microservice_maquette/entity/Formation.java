@@ -16,7 +16,8 @@ public class Formation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String libelle, description;
+    private String libelle;
+    private String description;
     private Date dateCreation = new Date();
 
     @OneToOne(mappedBy = "formation")
