@@ -18,12 +18,12 @@ import java.util.List;
 
 @RestController
 @Transactional
-@RequestMapping("/mqt/filiere")
+@RequestMapping("/filiere")
 public class FiliereController {
     @Autowired
     private FiliereService filiereService;
 
-        @GetMapping("/all")
+        @GetMapping
     public List<Filiere> listerFiliere(){
         return filiereService.afficherToutesFiliere();
     }
@@ -33,7 +33,7 @@ public class FiliereController {
         return filiereService.rechercherFiliere(id);
     }
    
-    @PostMapping("/add")
+    @PostMapping
     public Filiere ajouterFiliere(@RequestBody Filiere filiere){
         return filiereService.ajouterFiliere(filiere);
     }

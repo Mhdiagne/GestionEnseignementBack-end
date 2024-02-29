@@ -18,12 +18,12 @@ import java.util.List;
 
 @RestController
 @Transactional
-@RequestMapping("/mqt/niveau")
+@RequestMapping("/niveau")
 public class NiveauController {
     @Autowired
     private NiveauService niveauService;
 
-    @GetMapping("/all")
+    @GetMapping
     public List<Niveau> listerNiveau(){
         return niveauService.listerToutNiveau();
     }
@@ -33,7 +33,7 @@ public class NiveauController {
         return niveauService.rechercherNiveau(id);
     }
    
-    @PostMapping("/add")
+    @PostMapping
     public Niveau ajouterNiveau(@RequestBody Niveau niveau){
         return niveauService.ajouterNiveau(niveau);
     }

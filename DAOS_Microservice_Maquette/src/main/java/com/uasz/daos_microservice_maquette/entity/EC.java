@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import java.util.Collection;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -16,6 +18,7 @@ public class EC {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String libelle;
     private String code;
     private String description;
@@ -24,10 +27,13 @@ public class EC {
     private short tp;
     private short tpe;
     private short coefficient;
+
     private Date dateCreation = new Date();
 
     @ManyToOne
     private UE ue;
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "ec")
     private Collection<Module> module;
 }

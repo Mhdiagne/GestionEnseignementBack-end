@@ -19,12 +19,12 @@ import com.uasz.daos_microservice_maquette.service.SemestreService;
 
 @RestController
 @Transactional
-@RequestMapping("/mqt/semestre")
+@RequestMapping("/semestre")
 public class SemestreController {
   @Autowired
   private SemestreService semestreService;
 
-  @GetMapping("/all")
+  @GetMapping
     public List<Semestre> listerSemestre(){
         return semestreService.listerToutSemestre();
     }
@@ -34,7 +34,7 @@ public class SemestreController {
         return semestreService.rechercherSemestre(id);
     }
    
-    @PostMapping("/add")
+    @PostMapping
     public Semestre ajouterSemestre(@RequestBody Semestre semestre){
         return semestreService.ajouterSemestre(semestre);
     }

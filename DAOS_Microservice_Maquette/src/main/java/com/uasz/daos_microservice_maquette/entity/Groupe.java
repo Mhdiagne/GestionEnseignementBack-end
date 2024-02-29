@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import java.util.Collection;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -24,6 +26,8 @@ public class Groupe {
     
     @ManyToOne
     private Classe classe;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "groupe")
     private Collection<Enseignement> enseignement;
 }

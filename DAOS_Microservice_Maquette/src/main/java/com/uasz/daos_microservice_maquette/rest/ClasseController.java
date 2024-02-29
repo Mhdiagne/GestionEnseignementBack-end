@@ -22,12 +22,12 @@ import java.util.List;
 @RestController
 @NoArgsConstructor
 @AllArgsConstructor
-@RequestMapping("/mqt/classe")
+@RequestMapping("/classe")
 public class ClasseController {
     @Autowired
     private ClasseService classeService;
 
-    @GetMapping("/all")
+    @GetMapping
     public List<Classe> listerClasse(){
         return classeService.literToutesClasses();
     }
@@ -37,7 +37,7 @@ public class ClasseController {
         return classeService.rechercherClasse(id);
     }
    
-    @PostMapping("/add")
+    @PostMapping
     public Classe ajouterClasse(@RequestBody Classe classe){
         return classeService.ajouterClasse(classe);
     }

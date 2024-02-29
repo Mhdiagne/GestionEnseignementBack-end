@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import java.util.Collection;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -22,8 +24,11 @@ public class UE {
     private int credit, coefficient;
     private Date dateCreation;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "ue")
     private Collection<EC> ecs;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "ue")
     private Collection<Module> module;
 }

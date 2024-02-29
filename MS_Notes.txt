@@ -1,0 +1,21 @@
+ENTITY
+On cree une classe representant les donnees dont on a besoin sans en faire une table dans la bd
+
+SERVICE
+
+@FeignClient(name="maquette-service", url="localhost:8080")
+public interface UEProxy {
+	
+	@GetMapping(path="/maquette/api/ue")
+	List<UE> literUE();
+	
+	@GetMapping(path="/maquette/api/ue/{id}")
+	UE rechercherUE();
+	 	
+}
+
+APP.PROP
+spring.application.name=nomMSraquetter
+spring.config.import=
+
+

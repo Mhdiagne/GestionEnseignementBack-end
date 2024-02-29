@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import java.util.Collection;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -16,12 +18,15 @@ public class Maquette {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     private String libelle;
     private String description;
     private String code;
     private Date dateCreation = new Date();
     @OneToOne
     private Formation formation;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "maquette")
     private Collection<Module> module;
 }

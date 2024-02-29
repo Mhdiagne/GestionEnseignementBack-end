@@ -18,12 +18,12 @@ import java.util.List;
 
 @RestController
 @Transactional
-@RequestMapping("/mqt/cycle")
+@RequestMapping("/cycle")
 public class CycleController {
     @Autowired
     private CycleService cycleService;
 
-    @GetMapping("/all")
+    @GetMapping
     public List<Cycle> listerCycle(){
         return cycleService.afficherToutCycle();
     }
@@ -33,7 +33,7 @@ public class CycleController {
         return cycleService.rechercherCycle(id);
     }
    
-    @PostMapping("/add")
+    @PostMapping
     public Cycle ajouterCycle(@RequestBody Cycle cycle){
         return cycleService.ajouterCycle(cycle);
     }

@@ -18,12 +18,12 @@ import com.uasz.daos_microservice_maquette.service.FormationService;
 
 @Transactional
 @RestController
-@RequestMapping("/mqt/formation")
+@RequestMapping("/formation")
 public class FormationController {
     @Autowired
     private FormationService formationService;
 
-    @GetMapping("/all")
+    @GetMapping
     public List<Formation> listerFormation(){
         return formationService.listerToutFormation();
     }
@@ -33,7 +33,7 @@ public class FormationController {
         return formationService.rechercherFormation(id);
     }
    
-    @PostMapping("/add")
+    @PostMapping
     public Formation ajouterFormation(@RequestBody Formation formation){
         return formationService.ajouterFormation(formation);
     }

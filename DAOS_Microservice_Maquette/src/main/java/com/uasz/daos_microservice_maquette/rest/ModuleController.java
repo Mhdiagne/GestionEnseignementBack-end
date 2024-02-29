@@ -18,12 +18,12 @@ import com.uasz.daos_microservice_maquette.service.ModuleService;
 
 @RestController
 @Transactional
-@RequestMapping("/mqt/module")
+@RequestMapping("/module")
 public class ModuleController {
     @Autowired
     private ModuleService moduleService;
 
-    @GetMapping("/all")
+    @GetMapping
     public List<Module> listerModule(){
         return moduleService.listerToutModule();
     }
@@ -33,7 +33,7 @@ public class ModuleController {
         return moduleService.rechercherModule(id);
     }
    
-    @PostMapping("/add")
+    @PostMapping
     public Module ajouterModule(@RequestBody Module module){
         return moduleService.ajouterModule(module);
     }

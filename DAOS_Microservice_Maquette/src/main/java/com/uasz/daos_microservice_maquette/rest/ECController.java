@@ -18,12 +18,12 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/mqt/ec")
+@RequestMapping("/ec")
 public class ECController {
     @Autowired
     private ECService ecService;
 
-    @GetMapping("/all")
+    @GetMapping
     public List<EC> listerEC(){
         return ecService.listerToutECs();
     }
@@ -33,7 +33,7 @@ public class ECController {
         return ecService.afficherEC(id);
     }
    
-    @PostMapping("/add")
+    @PostMapping
     public EC ajouterEC(@RequestBody EC ec){
         return ecService.ajouterEC(ec);
     }

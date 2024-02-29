@@ -21,13 +21,13 @@ import com.uasz.daos_microservice_maquette.service.MaquetteService;
 @RestController
 @Transactional
 @AllArgsConstructor
-@RequestMapping("/mqt/maquette")
+@RequestMapping("/maquette")
 public class MaquetteController {
 
     @Autowired
     private MaquetteService maquetteService;
 
-    @GetMapping("/all")
+    @GetMapping
     public List<Maquette> listerMaquette(){
         return maquetteService.listerToutMaquette();
     }
@@ -37,7 +37,7 @@ public class MaquetteController {
         return maquetteService.rechercherMaquette(id);
     }
    
-    @PostMapping("/add")
+    @PostMapping
     public Maquette ajouterMaquette(@RequestBody Maquette maquette){
         return maquetteService.ajouterMaquette(maquette);
     }

@@ -19,12 +19,12 @@ import java.util.List;
 
 @Transactional
 @RestController
-@RequestMapping("/mqt/ue")
+@RequestMapping("/ue")
 public class UeController {
     @Autowired
     private UeService ueService;
 
-    @GetMapping("/all")
+    @GetMapping
     public List<UE> listerUE(){
         return ueService.afficherToutUE();
     }
@@ -34,7 +34,7 @@ public class UeController {
         return ueService.rechercherUE(id);
     }
    
-    @PostMapping("/add")
+    @PostMapping
     public UE ajouterUE(@RequestBody UE ue){
         return ueService.ajouterUE(ue);
     }

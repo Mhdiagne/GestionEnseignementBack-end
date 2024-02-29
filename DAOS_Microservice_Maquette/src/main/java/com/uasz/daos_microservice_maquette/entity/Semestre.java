@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import java.util.Collection;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,8 +22,11 @@ public class Semestre {
     private String description;
     private Date dateCreation = new Date();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "semestre")
     private Collection<Classe> classe;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "semestre")
     private Collection<Module> module;
 }
