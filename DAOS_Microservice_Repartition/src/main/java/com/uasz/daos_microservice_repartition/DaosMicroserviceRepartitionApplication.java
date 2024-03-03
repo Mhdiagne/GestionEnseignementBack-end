@@ -12,12 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
+@EnableDiscoveryClient
 @SpringBootApplication
 public class DaosMicroserviceRepartitionApplication implements CommandLineRunner {
 
@@ -59,18 +60,17 @@ public class DaosMicroserviceRepartitionApplication implements CommandLineRunner
         perRepository.saveAll(Arrays.asList(per2,per5,per3,per1,per4));
 
 
-//        List<Seance> seances = new ArrayList<>();
-//        Repartition repartition1 = new Repartition(null, "Repartition 1", new Date(), per2, seances);
-//        repartition1.setEnseignant(per1);
-//        Repartition repartition2 = new Repartition(null, "Repartition 2", new Date(), null, seances);
-//        repartition2.setEnseignant(vacataire2);
-//        Repartition repartition3 = new Repartition(null, "Repartition 3", new Date(), null, seances);
-//        repartition3.setEnseignant(per4);
-//        Repartition repartition4 = new Repartition(null, "Repartition 4", new Date(), null, seances);
-//        repartition4.setEnseignant(vacataire1);
-//        Repartition repartition5 = new Repartition(null, "Repartition 5", new Date(), null, seances);
-//        repartition5.setEnseignant(per1);
-//        repartitionRepository.saveAll(Arrays.asList(repartition1,repartition2,repartition5,repartition3,repartition4));
+        Repartition repartition1 = new Repartition(null, "Repartition 1", new Date(), per2);
+        repartition1.setEnseignant(per1);
+        Repartition repartition2 = new Repartition(null, "Repartition 2", new Date(), null);
+        repartition2.setEnseignant(vacataire2);
+        Repartition repartition3 = new Repartition(null, "Repartition 3", new Date(), null);
+        repartition3.setEnseignant(per4);
+        Repartition repartition4 = new Repartition(null, "Repartition 4", new Date(), null);
+        repartition4.setEnseignant(vacataire1);
+        Repartition repartition5 = new Repartition(null, "Repartition 5", new Date(), null);
+        repartition5.setEnseignant(per1);
+        repartitionRepository.saveAll(Arrays.asList(repartition1,repartition2,repartition5,repartition3,repartition4));
 
 
 

@@ -13,8 +13,7 @@ import java.util.List;
 public class PERRestController {
 
     @Autowired private PER_Service perService;
-
-//    @Autowired private RepartitionService repartitionService;
+    
 
     private Long idPer;
 
